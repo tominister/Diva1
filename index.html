@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Diva 💖</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="heart-animation">
+                <div class="heart heart1">💖</div>
+                <div class="heart heart2">💝</div>
+                <div class="heart heart3">💕</div>
+            </div>
+            <h1 class="title">For Diva 1</h1>
+            <p class="subtitle">Pay attention ok? 💫</p>
+            <button class="romantic-btn" onclick="startGames()">You ready? ✨</button>
+        </div>
+
+        <!-- Simon Says Game -->
+        <div id="simon-game" class="screen">
+            <h2>Pattern Memory Game 🎵</h2>
+            <p class="game-subtitle">Remember the sequence and repeat it back!</p>
+            <div class="simon-board">
+                <div class="simon-button red" data-color="red"></div>
+                <div class="simon-button blue" data-color="blue"></div>
+                <div class="simon-button green" data-color="green"></div>
+                <div class="simon-button yellow" data-color="yellow"></div>
+            </div>
+            <div class="game-info">
+                <p>Level: <span id="simon-level">1</span></p>
+                <p id="simon-status">Watch the pattern!</p>
+            </div>
+            <button id="simon-start" class="romantic-btn">Start Game</button>
+            <button id="simon-next" class="romantic-btn" style="display: none;" onclick="nextGame('lights-game')">Next Challenge 💡</button>
+        </div>
+
+        <!-- Lights Out Game -->
+        <div id="lights-game" class="screen">
+            <h2>Lights Out Puzzle 💡</h2>
+            <p class="game-subtitle">Turn off all the lights! Clicking a light toggles it and its neighbors.</p>
+            <div class="lights-grid" id="lights-grid"></div>
+            <div class="game-controls">
+                <button id="lights-reset" class="romantic-btn">Reset</button>
+                <button id="lights-solve" class="romantic-btn">Show Solution ✨</button>
+                <button id="lights-next" class="romantic-btn" style="display: none;" onclick="nextGame('sliding-game')">Next Challenge 🧩</button>
+            </div>
+            <div id="solution-steps" class="solution-display"></div>
+        </div>
+
+        <!-- Sliding Puzzle Game -->
+        <div id="sliding-game" class="screen">
+            <h2>Sliding Puzzle 🧩</h2>
+            <p class="game-subtitle">Arrange the numbers 1-15 in order!</p>
+            <div class="sliding-grid" id="sliding-grid"></div>
+            <div class="game-controls">
+                <button id="sliding-reset" class="romantic-btn">Reset</button>
+                <button id="sliding-solve" class="romantic-btn">Auto-Solve ✨</button>
+                <button id="sliding-next" class="romantic-btn" style="display: none;" onclick="nextGame('victory-screen')">See Final Message 💕</button>
+            </div>
+        </div>
+
+        <!-- Victory Screen -->
+        <div id="victory-screen" class="screen">
+            <div class="victory-animation" id="victory-sparkles">
+                <div class="sparkle sparkle1">✨</div>
+                <div class="sparkle sparkle2">⭐</div>
+                <div class="sparkle sparkle3">💫</div>
+                <div class="sparkle sparkle4">🌟</div>
+            </div>
+            <h1 class="victory-title" id="victory-title-text">Congrats, you passed! 🎉</h1>
+            <p class="victory-message" id="victory-message-text">You're as brilliant as you are beautiful, Diva! 💖</p>
+            <div class="floating-hearts" id="victory-hearts">
+                <div class="floating-heart">💖</div>
+                <div class="floating-heart">💕</div>
+                <div class="floating-heart">💝</div>
+                <div class="floating-heart">💗</div>
+                <div class="floating-heart">💓</div>
+            </div>
+            <button class="romantic-btn" id="victory-play-again" onclick="handleVictoryRestart()">Play Again 🔄</button>
+            
+            <!-- Dark twist elements (hidden initially) -->
+            <div class="dark-overlay" id="dark-overlay"></div>
+            <div class="spooky-container" id="spooky-container">
+                <h1 class="dark-title" id="dark-title">You thought it was that easy hm? 😏</h1>
+                <button class="dark-btn" id="dark-restart" onclick="handleDarkRestart()" disabled>Try Again... If You Dare 🔥</button>
+            </div>
+            
+            <!-- Continue button (top right) -->
+            <button class="continue-btn" id="continue-btn" onclick="goToNextPage()">Continue ➤</button>
+        </div>
+
+        <!-- New Gloomy Page -->
+        <div id="gloomy-screen" class="screen gloomy-theme">
+            <h1 class="gloomy-title" id="gloomy-title">Wow, not bad <span class="clickable-diva" onclick="goToFinalPage()">Diva</span>, I'm impressed</h1>
+            <h2 class="cipher-text" id="cipher-text">folfn rq Glyd</h2>
+            <button class="click-btn" id="click-btn" onclick="handleClick()">Click here</button>
+            <p class="click-message" id="click-message"></p>
+        </div>
+
+        <!-- Final Page -->
+        <div id="final-screen" class="screen gloomy-theme">
+            <h1 class="final-title">Mmmmmmm, I REALLY like you now, but this is still too simple. Whatever, do you plan to dress up for Halloween?</h1>
+            <div class="final-emotes">
+                <span>🎃</span>
+                <span>👻</span>
+                <span>🦇</span>
+                <span>🕷️</span>
+                <span>💀</span>
+                <span>🕸️</span>
+                <span>🌙</span>
+                <span>⚡</span>
+                <span>🔮</span>
+                <span>🧙‍♀️</span>
+                <span>🖤</span>
+                <span>🥀</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

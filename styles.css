@@ -1,0 +1,1009 @@
+/* Romantic Website Styles for Diva */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ff6b9d, #ff8cc8, #ffd93d, #6bcf7f, #4d79ff);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+    min-height: 90vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 20px 0;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* Typography */
+.title {
+    font-size: 3.5rem;
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from { text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.5); }
+    to { text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.8); }
+}
+
+.subtitle, .game-subtitle {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+.romantic-btn {
+    background: linear-gradient(45deg, #ff6b9d, #ff8cc8);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255, 107, 157, 0.4);
+    margin: 10px;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    text-transform: none;
+}
+
+.romantic-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(255, 107, 157, 0.6);
+    background: linear-gradient(45deg, #ff8cc8, #ff6b9d);
+}
+
+.romantic-btn:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Heart Animations */
+.heart-animation {
+    position: relative;
+    margin-bottom: 30px;
+    height: 100px;
+}
+
+.heart {
+    position: absolute;
+    font-size: 3rem;
+    animation: heartFloat 4s ease-in-out infinite;
+}
+
+.heart1 {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.heart2 {
+    left: 50%;
+    animation-delay: 1.3s;
+    font-size: 2.5rem;
+}
+
+.heart3 {
+    left: 80%;
+    animation-delay: 2.6s;
+    font-size: 3.5rem;
+}
+
+@keyframes heartFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(5deg); }
+    50% { transform: translateY(-10px) rotate(-5deg); }
+    75% { transform: translateY(-30px) rotate(3deg); }
+}
+
+/* Simon Says Game */
+.simon-board {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 30px 0;
+    max-width: 400px;
+}
+
+.simon-button {
+    width: 150px;
+    height: 150px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.simon-button.red {
+    background: linear-gradient(45deg, #ff4757, #ff6b9d);
+}
+
+.simon-button.blue {
+    background: linear-gradient(45deg, #3742fa, #70a1ff);
+}
+
+.simon-button.green {
+    background: linear-gradient(45deg, #2ed573, #7bed9f);
+}
+
+.simon-button.yellow {
+    background: linear-gradient(45deg, #ffa502, #ffdd59);
+}
+
+.simon-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.simon-button.active {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+    filter: brightness(1.5);
+}
+
+.game-info {
+    margin: 20px 0;
+    color: #fff;
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Lights Out Game */
+.lights-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin: 30px 0;
+    max-width: 350px;
+}
+
+.light-cell {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+.light-cell.on {
+    background: linear-gradient(45deg, #ffd93d, #fffa65);
+    box-shadow: 0 0 20px rgba(255, 217, 61, 0.8);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.light-cell.off {
+    background: linear-gradient(45deg, #2c2c2c, #4a4a4a);
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.light-cell:hover {
+    transform: scale(1.1);
+}
+
+.light-cell.solution-hint {
+    background: linear-gradient(45deg, #2ed573, #7bed9f) !important;
+    border-color: rgba(46, 213, 115, 0.8) !important;
+    animation: greenHintPulse 1s ease-in-out infinite alternate;
+    transform: scale(1.1);
+}
+
+@keyframes greenHintPulse {
+    from { 
+        box-shadow: 0 0 20px rgba(46, 213, 115, 0.8);
+        filter: brightness(1.2);
+    }
+    to { 
+        box-shadow: 0 0 35px rgba(46, 213, 115, 1);
+        filter: brightness(1.5);
+    }
+}
+
+/* Sliding Puzzle Game */
+.sliding-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 30px 0;
+    max-width: 320px;
+}
+
+.sliding-tile {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.sliding-tile.number {
+    background: linear-gradient(45deg, #ff6b9d, #ff8cc8);
+    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
+}
+
+.sliding-tile.empty {
+    background: transparent;
+    border: 3px dashed rgba(255, 255, 255, 0.3);
+    cursor: default;
+}
+
+.sliding-tile:hover:not(.empty) {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(255, 107, 157, 0.6);
+}
+
+/* Game Controls */
+.game-controls {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.solution-display {
+    margin-top: 20px;
+    color: #fff;
+    font-size: 1.1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    max-height: 200px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Victory Screen */
+.victory-animation {
+    position: relative;
+    margin-bottom: 30px;
+    height: 120px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+.sparkle {
+    position: absolute;
+    font-size: 2.5rem;
+    animation: sparkleFloat 3s ease-in-out infinite;
+}
+
+.sparkle1 {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.sparkle2 {
+    left: 30%;
+    animation-delay: 0.7s;
+}
+
+.sparkle3 {
+    left: 60%;
+    animation-delay: 1.4s;
+}
+
+.sparkle4 {
+    left: 85%;
+    animation-delay: 2.1s;
+}
+
+@keyframes sparkleFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+    25% { transform: translateY(-30px) rotate(90deg) scale(1.2); }
+    50% { transform: translateY(-15px) rotate(180deg) scale(0.8); }
+    75% { transform: translateY(-40px) rotate(270deg) scale(1.1); }
+}
+
+.victory-title {
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 25px;
+    animation: victoryGlow 2s ease-in-out infinite alternate;
+    opacity: 0;
+    animation: typeWriter 2s ease-out 1.5s forwards, victoryGlow 2s ease-in-out 3.5s infinite alternate;
+}
+
+@keyframes typeWriter {
+    0% { 
+        opacity: 0;
+        width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    50% {
+        opacity: 1;
+        width: 100%;
+    }
+    100% {
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+@keyframes victoryGlow {
+    from { text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 217, 61, 0.6); }
+    to { text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3), 0 0 50px rgba(255, 217, 61, 1); }
+}
+
+.victory-message {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 3s forwards;
+}
+
+.floating-hearts {
+    position: relative;
+    height: 100px;
+    margin: 30px 0;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 3.5s forwards;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 2rem;
+    animation: floatUp 4s ease-in-out infinite;
+}
+
+.floating-heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-heart:nth-child(2) {
+    left: 25%;
+    animation-delay: 0.8s;
+}
+
+.floating-heart:nth-child(3) {
+    left: 50%;
+    animation-delay: 1.6s;
+}
+
+.floating-heart:nth-child(4) {
+    left: 75%;
+    animation-delay: 2.4s;
+}
+
+.floating-heart:nth-child(5) {
+    left: 90%;
+    animation-delay: 3.2s;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0px) opacity(0); }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateY(-100px) opacity(0); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#victory-play-again {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 4s forwards;
+}
+
+/* Dark Twist Styles */
+.dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #000000, #1a0000, #330000);
+    opacity: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.dark-overlay.active {
+    animation: darkTakeover 2s ease-in-out forwards;
+    pointer-events: all;
+}
+
+@keyframes darkTakeover {
+    0% { opacity: 0; }
+    100% { opacity: 0.95; }
+}
+
+.spooky-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.spooky-container.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.spooky-eyes {
+    margin-bottom: 30px;
+    opacity: 0;
+}
+
+.spooky-eyes.animate {
+    animation: spookyAppear 1s ease-out forwards;
+}
+
+.eye {
+    display: inline-block;
+    font-size: 3rem;
+    margin: 0 20px;
+    animation: evilBlink 2s ease-in-out infinite;
+}
+
+.eye:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.eye:nth-child(2) {
+    animation-delay: 0.7s;
+}
+
+.eye:nth-child(3) {
+    animation-delay: 1.4s;
+}
+
+@keyframes evilBlink {
+    0%, 90%, 100% { transform: scaleY(1); filter: hue-rotate(0deg); }
+    95% { transform: scaleY(0.1); filter: hue-rotate(180deg); }
+}
+
+.spooky-smiles {
+    margin-bottom: 40px;
+    opacity: 0;
+}
+
+.spooky-smiles.animate {
+    animation: spookyAppear 1s ease-out 0.5s forwards;
+}
+
+.smile {
+    display: inline-block;
+    font-size: 2.5rem;
+    margin: 0 15px;
+    animation: creepyRotate 3s ease-in-out infinite;
+}
+
+.smile:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.smile:nth-child(2) {
+    animation-delay: 0.75s;
+}
+
+.smile:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+.smile:nth-child(4) {
+    animation-delay: 2.25s;
+}
+
+@keyframes creepyRotate {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(15deg) scale(1.2); }
+    50% { transform: rotate(-10deg) scale(0.9); }
+    75% { transform: rotate(20deg) scale(1.1); }
+}
+
+.dark-title {
+    font-size: 3rem;
+    color: #ff4444;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 68, 68, 0.6);
+    margin-bottom: 30px;
+    opacity: 0;
+    font-family: 'Georgia', serif;
+    text-align: center;
+}
+
+.dark-title.animate {
+    animation: darkTypeWriter 3s ease-out forwards, evilGlow 2s ease-in-out 3s infinite alternate;
+}
+
+@keyframes darkTypeWriter {
+    0% { 
+        opacity: 0;
+        width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0 auto;
+    }
+    50% {
+        opacity: 1;
+        width: 100%;
+    }
+    100% {
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+@keyframes evilGlow {
+    from { 
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 68, 68, 0.6);
+        filter: hue-rotate(0deg);
+    }
+    to { 
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 68, 68, 1);
+        filter: hue-rotate(20deg);
+    }
+}
+
+.spooky-elements {
+    margin: 40px 0;
+    opacity: 0;
+}
+
+.spooky-elements.animate {
+    animation: spookyAppear 1s ease-out 2s forwards;
+}
+
+.spooky-element {
+    display: inline-block;
+    font-size: 2rem;
+    margin: 0 10px;
+    animation: spookyFloat 4s ease-in-out infinite;
+}
+
+.spooky-element:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.spooky-element:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.spooky-element:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+.spooky-element:nth-child(4) {
+    animation-delay: 2.4s;
+}
+
+.spooky-element:nth-child(5) {
+    animation-delay: 3.2s;
+}
+
+@keyframes spookyFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(90deg); }
+    50% { transform: translateY(10px) rotate(180deg); }
+    75% { transform: translateY(-30px) rotate(270deg); }
+}
+
+@keyframes spookyAppear {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.dark-btn {
+    background: linear-gradient(45deg, #660000, #cc0000);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(204, 0, 0, 0.4);
+    margin: 20px;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    opacity: 0;
+    border: 2px solid #ff4444;
+}
+
+.dark-btn.animate {
+    animation: spookyAppear 1s ease-out 3s forwards;
+}
+
+.dark-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(204, 0, 0, 0.6);
+    background: linear-gradient(45deg, #cc0000, #660000);
+    border-color: #ff6666;
+}
+
+.dark-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Continue Button */
+.continue-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #333333, #555555);
+    color: white;
+    border: 2px solid #777777;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    z-index: 30;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.continue-btn.show {
+    opacity: 1;
+    pointer-events: all;
+    animation: continueAppear 1s ease-out forwards;
+}
+
+@keyframes continueAppear {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.continue-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: linear-gradient(45deg, #555555, #333333);
+    border-color: #999999;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Gloomy Theme */
+.gloomy-theme {
+    background: linear-gradient(135deg, #2c2c2c, #3a3a3a, #4a4a4a, #363636);
+    background-size: 400% 400%;
+    animation: gloomyShift 10s ease infinite;
+}
+
+@keyframes gloomyShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.gloomy-title {
+    font-size: 3rem;
+    color: #cccccc;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    font-family: 'Georgia', serif;
+    opacity: 0;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+.gloomy-title.animate {
+    animation: gloomyTypeWriter 4s ease-out forwards;
+}
+
+@keyframes gloomyTypeWriter {
+    0% { 
+        opacity: 0;
+        width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 80px auto 40px;
+    }
+    25% {
+        opacity: 1;
+        width: 100%;
+    }
+    100% {
+        opacity: 1;
+        width: 100%;
+        margin: 80px auto 40px;
+    }
+}
+
+.cipher-text {
+    font-size: 2.5rem;
+    color: #999999;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    font-family: 'Georgia', serif;
+    opacity: 0;
+    margin: 60px auto 40px;
+    font-style: italic;
+}
+
+.cipher-text.animate {
+    animation: cipherTypeWriter 3s ease-out forwards;
+}
+
+@keyframes cipherTypeWriter {
+    0% { 
+        opacity: 0;
+        width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 60px auto 40px;
+    }
+    30% {
+        opacity: 1;
+        width: 100%;
+    }
+    100% {
+        opacity: 1;
+        width: 100%;
+        margin: 60px auto 40px;
+    }
+}
+
+.click-btn {
+    background: linear-gradient(45deg, #444444, #666666);
+    color: #cccccc;
+    border: 2px solid #777777;
+    padding: 15px 30px;
+    font-size: 1.3rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    margin: 40px auto;
+    display: block;
+    opacity: 0;
+}
+
+.click-btn.show {
+    opacity: 1;
+    animation: clickBtnAppear 1s ease-out forwards;
+}
+
+@keyframes clickBtnAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.click-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: linear-gradient(45deg, #666666, #444444);
+    border-color: #999999;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.click-message {
+    font-size: 1.4rem;
+    color: #aaaaaa;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    font-family: 'Georgia', serif;
+    margin: 30px auto;
+    min-height: 60px;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.click-message.show {
+    opacity: 1;
+    animation: messageAppear 0.8s ease-out forwards;
+}
+
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Clickable Diva - Hidden */
+.clickable-diva {
+    color: inherit;
+    cursor: inherit;
+    text-decoration: none;
+}
+
+/* Final Page */
+.final-title {
+    font-size: 2.5rem;
+    color: #cccccc;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    font-family: 'Georgia', serif;
+    margin: 100px auto 60px;
+    line-height: 1.4;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.final-emotes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 60px auto;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.final-emotes span {
+    font-size: 3rem;
+    filter: grayscale(0.3);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.final-emotes span:hover {
+    transform: scale(1.2);
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .victory-title {
+        font-size: 3rem;
+    }
+    
+    .simon-button {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .light-cell {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .sliding-tile {
+        width: 60px;
+        height: 60px;
+        font-size: 1.3rem;
+    }
+    
+    .lights-grid {
+        max-width: 290px;
+    }
+    
+    .sliding-grid {
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .victory-title {
+        font-size: 2.5rem;
+    }
+    
+    .simon-button {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .simon-board {
+        max-width: 240px;
+    }
+    
+    .light-cell {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .sliding-tile {
+        width: 55px;
+        height: 55px;
+        font-size: 1.1rem;
+    }
+    
+    .lights-grid {
+        max-width: 250px;
+    }
+    
+    .sliding-grid {
+        max-width: 240px;
+    }
+}
